@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-w%6p&sfx$_6(_26xv6tz3ey-j0^qu%-l=p2er=9hm^knv_uruj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://sis-veiculos.herokuapp.com/']
 
 
 # Application definition
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'crispy_forms',
+    
     # Meus Apps
     'core',
 ]
@@ -156,3 +158,8 @@ REST_FRAMEWORK = {
 
 # CRISPY FORMS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# Heroku
+
+django_heroku.setting(locals())
