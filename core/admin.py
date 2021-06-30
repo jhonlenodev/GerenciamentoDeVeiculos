@@ -1,3 +1,7 @@
 from django.contrib import admin
+from core.models import *
 
-# Register your models here.
+# RESGISTRANDO MODELS NA TELA DE ADMIN
+
+admin.site.register(Veiculo)
+admin.site.register(Venda)

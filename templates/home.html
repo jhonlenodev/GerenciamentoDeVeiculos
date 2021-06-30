@@ -1,14 +1,31 @@
 {% extends 'base.html' %}
-
-{% block content %}
-<header>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-                <strong>Agencia</strong>
-            </a>
-        </div>
+{% block title %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Gerenciamento de Veiculos</h1>
+        <p class="lead text-muted"></p>
+        <p>
+            <a href="{% url 'comprar' %}" class="btn btn-primary my-2">Comprar Veiculo</a>
+        </p>
+        <p></p>
     </div>
-</header>
+    <div class="container">
+
+
+        <a href="{% url 'disponiveis' %}" class="btn btn-info my-4">Veiculos Disponiveis</a>
+
+
+        <a href="{% url 'vendidos' %}" class="btn btn-warning my-4">Veiculos Vendidos</a>
+
+    </div>
+</section>
+<div class="container">
+    <h1 class="jumbotron-heading">API Root:</h1>
+    <p class="lead text-muted"></p>
+    <p>
+        <a href="api/" class="btn btn-warning my-2" target="_blank">API</a>
+    </p>
+    <p></p>
+</div>
 
 {% endblock %}

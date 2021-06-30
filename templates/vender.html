@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<section class=" text-center">
+
+    <h1 class="jumbotron-heading">Situação do {{ veiculo.modelo }} : {{ veiculo.status }}</h1>
+
+
+</section>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %} style="list-style: none;">{{message}}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+
+                <label for="tipo">Escolher : {{ veiculo.modelo }} - {{ veiculo.placa }}</label>
+                <label class="custom-control-inline">
+                    {{ form.carro }}
+                </label>
+
+
+           
+            <label for="tipo">Vendedor: </label>
+            <label class="custom-control-inline">
+                {{ form.vendedor }}
+
+            </label>
+
+            <label for="tipo">Valor Atual do Veiculo: <input type="text" name="valor1" id="id_valor_atual"
+                    value="{{ veiculo.valor }}" placeholder="R${{ veiculo.valor }}"> </label>
+            <label for="tipo"> Nome do comprador : {{ form.comprador }}</label>
+
+
+
+            <br>
+            <label for="tipo">Valor de Venda: {{ form.valor_venda }} </label>
+
+
+
+       
+        <label class="custom-control">
+
+            <a class="btn btn-success btn-sm border-0" onclick="calcular();">CALCULAR</a>
+
+        </label>
+
+        <label for="tipo">Restante : <input type="text" name="result" id="result"></label>
+        <label for="tipo">Comissão : {{ form.comisao }} </label>
+        <label for="tipo">Lucro : {{ form.lucro }} </label>
+        <label for="tipo">Status : {{ form.status}} </label>
+        <button type="submit" class="btn btn-success">Vender</button>
+        <a href="{% url 'home' %}"><button type="button" class="btn btn-primary">Cancelar</button></a>
+        <div class="form-group col-md-4"></div>
+
+
+
+
+    </form>
+</div>
+{% endblock %}

@@ -34,6 +34,18 @@
             }
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+        }
+
         .jumbotron p:last-child {
             margin-bottom: 0;
         }
@@ -46,14 +58,7 @@
             max-width: 40rem;
         }
 
-        footer {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
 
-        footer p {
-            margin-bottom: .25rem;
-        }
 
         .box-shadow {
             box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
@@ -64,8 +69,120 @@
 
 <body>
 
-    {% block content %}
-    {% endblock %}
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>Agencia de Veiculos</strong>
+                </a>
+                <a href="{% url 'resumo' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>Resumo de Vendas</strong>
+                </a>
+
+                <a href="{% url 'sobre' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>Sobre o Projeto</strong>
+                </a>
+                {% block sair %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>SAIR</strong>
+                </a>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>Entrar</strong>
+                </a>
+                {% endif %}
+                {% endblock %}
+
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        {% block title %}
+
+        {% endblock %}
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/jhonlenodev"
+                    target="_blank"><i class="fab fa-github"></i></a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1"
+                    href="https://www.linkedin.com/in/jhon-leno-b89837211/" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/jhonlenofc/"
+                    target="_blank">
+                    <i class="fab fa-instagram"></i></a>
+
+                <!-- Section: Social media -->
+                <br>
+                    © 2020 Copyright: JhonLenoFC
+                
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+
+        <!-- Copyright -->
+    </footer>
+
+    <!-- End of .container -->
+    <script>
+        function calcular() {
+            let valor1 = parseInt(document.getElementById('id_valor_venda').value);
+            let valor2 = parseInt(document.getElementById('id_valor_atual').value);
+            let result = document.getElementById('result');
+            let comisao = document.getElementById('id_comisao');
+            let lucro = document.getElementById('id_lucro');
+
+            result.value = valor1 - valor2
+            let porcentagem = result.value / 10
+
+            comisao.value = porcentagem
+            let real = result.value - comisao.value
+            lucro.value = real
+
+
+
+        }
+
+    </script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
 </body>
 
 </html>

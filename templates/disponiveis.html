@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for veiculo in veiculos %}
+            <tr>
+                <td>{{ veiculo.id }}</td>
+                <td>{{ veiculo.modelo }}</td>
+                <td>{{ veiculo.placa }}</td>
+                <td>{{ veiculo.cor }}</td>
+                <td>{{ veiculo.valor }}</td>
+                <td>
+                    <form action="{% url 'detalhes' veiculo.id %}">
+                        <button type="submit" class="btn btn-primary">Detalhes</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'vender' veiculo.id %}">
+                        <button type="submit" class="btn btn-success">Vender</button>
+                    </form>
+                </td>
+
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

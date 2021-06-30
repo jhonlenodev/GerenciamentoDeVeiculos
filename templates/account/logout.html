@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Sair do Login</h1>
+    </div>
+</section>
+{% endblock %}
+{% block content %}
+<h2>Tem certeza que deseja sair ?</h2>
+<div class="container">
+
+<form action="/">
+    <button class="btn btn-primary" type="submit">Cancelar</button>
+</form>
+<form method="post">
+        {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Sair</button>
+</form>
+
+</div>
+{% endblock %}

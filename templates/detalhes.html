@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Informações</th>>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Modelo</th>
+        <td>{{ veiculo.modelo }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Marca</th>
+        <td>{{ veiculo.marca }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Ano</th>
+        <td>{{ veiculo.ano }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Placa</th>
+        <td>{{ veiculo.placa }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Cor</th>
+        <td>{{ veiculo.cor }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Chassi</th>
+        <td>{{ veiculo.chassi }}</td>
+
+      </tr>
+      <tr>
+        <th scope="row">Data de Compra</th>
+        <td>{{ veiculo.data_compra }}</td>
+    
+      </tr>
+      <tr>
+        <th scope="row">Valor</th>
+        <td>{{ veiculo.valor }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <a href="{% url 'vender' veiculo.id %}" class="btn btn-danger my-12">Vender</a>
+</div>
+
+{% endblock %}

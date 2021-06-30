@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <th>Calculadora</th>
+            </tr>
+            <tr>
+                <td>Valor 1 <input type="text" name="valor1" id="valor1"> </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="sinal" id="sinal">
+                        <option value="+"></option>
+                        <option value="-"></option>
+                        <option value="*"></option>
+                        <option value="/"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Valor 2 <input type="text" name="valor2" id="valor2"> </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="=" onclick="calcular();" name="">
+                </td>
+            </tr>
+            <tr>
+                <td>Resultado <input type="text" name="result" id="result"> </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function calcular(){
+            let valor1 = parseInt(document.getElementById('valor1').value);
+            let valor2 = parseInt(document.getElementById('valor2').value);
+            let sinal = document.getElementById('sinal').value;
+            let result = document.getElementById('result');
+
+            result.value = valor1 + valor2
+            
+        }
+    </script>
+</body>
+</html>

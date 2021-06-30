@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Resumo de Compras</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Valor</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+            <tr>
+
+                <td>{{ compra.id }}</td>
+                <td>{{ compra.modelo }}</td>
+                <td>{{ compra.placa }}</td>
+                <td>{{ compra.marca }}</td>
+                <td>{{ compra.valor }}</td>
+                <td>{{ compra.data_compra }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<h1>Resumo de Vendas</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vendedor</th>
+                <th>Carro</th>
+                <th>Comissao</th>
+                <th>Lucro</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venda in vendas %}
+            <tr>
+
+
+                <td>{{ venda.id }}</td>
+                <td>{{ venda.vendedor }}</td>
+                <td>{{ venda.carro }}</td>
+                <td>{{ venda.comisao}}</td>
+                <td>{{ venda.lucro }}</td>
+                <td>{{ venda.data_venda }}</td>
+
+
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+<h1>Receita</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Compras</th>
+                <th>Vendas</th>
+                <th>Comissões</th>
+                <th>Lucro Total</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>R$ {{ gasto }}</td>
+                <td>R$ {{ ganho }}</td>
+                <td>R$ {{ comisao }}</td>
+                <td>R$ {{ receita }}</td>
+
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}

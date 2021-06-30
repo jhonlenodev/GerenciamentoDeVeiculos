@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Cadastrando Compra</h1>
+    </div>
+</section>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %} style="list-style: none;">{{message}}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Modelo</label>
+            {{ form.modelo }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Marca</label>
+                {{ form.marca }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Ano</label>
+                {{ form.ano}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Placa</label>
+                {{ form.placa}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Chassi</label>
+                {{ form.chassi}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Cor</label>
+                {{ form.cor}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Valor</label>
+                {{ form.valor}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label">Manter Disponível</label>
+                {{ form.status}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </div>
+        <div class="form-group col-md-6">
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-primary">Cancelar</button></a>
+        </div>
+    </div>
+
+
+    {% endblock %}
