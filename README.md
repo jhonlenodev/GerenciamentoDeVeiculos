@@ -10,4 +10,9 @@ Sistema em Django  capaz de:
 
 Deploy feito utilizando Heroku
 
+link : https://sis-veiculos.herokuapp.com/
+
+usuario: devnology
+senha: @devdjango
+
 Bibliotecas utilizadas estão no arquivo 'requirements.txt'
