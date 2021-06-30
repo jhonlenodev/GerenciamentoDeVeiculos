@@ -162,4 +162,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Heroku
 
-django_heroku.setting(locals())
+django_heroku.settings(locals())
